@@ -39,7 +39,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
 
-    api project(':net_lib')
+//    api project(':net_lib')
+
+    implementation 'com.github.yezizaiqiutian:netlib:0.0.1'
 
     api "com.squareup.okhttp3:logging-interceptor:4.4.1"
 

@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         override fun onError(e: Throwable, list: List<ItemBean?>?) {
             tv_text.text = e.toString()
-
         }
 
         override fun onCancel() {
