@@ -60,7 +60,8 @@ public class ProgressSubscriber<T extends BaseResultEntity> extends DisposableSu
             if (t.isSuccess()) {
                 mSubscriberOnNextListener.get().onNext(t.getData());
             } else {
-                mSubscriberOnNextListener.get().onError(new HttpTimeException(t.getMsg()), t);
+                mSubscriberOnNextListener.get().onError(new HttpTimeException(t.getMsg()));
+                mSubscriberOnNextListener.get().onError(new HttpTimeException(t.getMsg()), t.getCode(), t.getMsg(), t.getData());
             }
         }
     }
@@ -144,7 +145,8 @@ public class ProgressSubscriber<T extends BaseResultEntity> extends DisposableSu
 //            Toast.makeText(context, "错误" + e.getMessage(), Toast.LENGTH_SHORT).show();
 //        }
         if (mSubscriberOnNextListener.get() != null) {
-            mSubscriberOnNextListener.get().onError(e, null);
+            mSubscriberOnNextListener.get().onError(e);
+            mSubscriberOnNextListener.get().onError(e, null, null, null);
         }
     }
 

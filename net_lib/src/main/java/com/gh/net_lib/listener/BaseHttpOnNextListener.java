@@ -21,12 +21,21 @@ public abstract class BaseHttpOnNextListener<T> {
 
     /**
      * 失败或者错误方法
-     * 主动调用，更加灵活
      *
-     * @param e     错误
-     * @param t     返回的数据(如果无法返回,则为null)
+     * @param e
      */
-    public void onError(Throwable e, T t) {
+    public void onError(Throwable e) {
+    }
+
+    /**
+     * 失败或者错误方法
+     *
+     * @param e
+     * @param errorCode
+     * @param errorMsg
+     * @param t
+     */
+    public void onError(Throwable e, String errorCode, String errorMsg, T t) {
     }
 
     /**
