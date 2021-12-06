@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 
 import com.gh.net_lib.LoadingDialog;
-import com.gh.net_lib.exception.HttpTimeException;
 import com.gh.net_lib.listener.BaseHttpOnNextListener;
 
 import java.lang.ref.SoftReference;
@@ -143,9 +142,9 @@ public abstract class BaseApi<T> implements Function<BaseResultEntity<T>, BaseRe
 
     @Override
     public BaseResultEntity<T> apply(BaseResultEntity<T> httpResult) {
-        if (!httpResult.isSuccess()) {
-            throw new HttpTimeException(httpResult.getMsg());
-        }
+//        if (!httpResult.isSuccess()) {
+//            throw new HttpTimeException(httpResult.getMsg());
+//        }
         return httpResult;
     }
 
