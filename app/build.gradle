@@ -44,7 +44,8 @@ dependencies {
 
 //    api project(':net_lib')
 
-    implementation 'com.github.yezizaiqiutian:netlib:0.0.1'
+//    implementation 'com.github.yezizaiqiutian:netlib:0.0.1'
+//    implementation 'com.github.yezizaiqiutian:netlib:0.0.03'
 
     api "com.squareup.okhttp3:logging-interceptor:4.4.1"
 
