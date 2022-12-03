@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-include ':net_lib'
+//include ':net_lib'
 include ':net_lib_ktx_coroutines'
 include ':app'
 rootProject.name = "netlib"
