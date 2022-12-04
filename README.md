@@ -10,11 +10,11 @@
 
 ### 使用方式
 
-#### retrofit+flow+coroutines(推荐)
+#### (推荐)retrofit+flow+coroutines
 
 引用
 ```
-    implementation 'com.github.yezizaiqiutian:netlib:0.0.03'
+    implementation 'com.github.yezizaiqiutian:netlib:0.0.01'
 
 ```
 
@@ -47,7 +47,7 @@
 
 引用
 ```
-    implementation 'com.github.yezizaiqiutian:netlib:0.0.1'
+    implementation 'com.github.yezizaiqiutian:netlib:0.0.3'
 ```
 
 方法调用
