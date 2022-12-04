@@ -48,11 +48,11 @@ fun IUIView.launchWithLoading(requestBlock: suspend () -> Unit) {
  */
 fun <T> IUIView.launchAndCollect(
     requestBlock: suspend () -> BaseApiResponse<T>,
-    listenerBuilder: ResultBuilderApp<T>.() -> Unit,
+    listenerBuilder: ResultBuilder<T>.() -> Unit,
 ) {
     lifecycleScope.launch {
         launchFlow(requestBlock).collect { response ->
-            val listener = ResultBuilderApp<T>().also(listenerBuilder)
+            val listener = ResultBuilder<T>().also(listenerBuilder)
             response.parseData(listener)
         }
     }
@@ -64,11 +64,11 @@ fun <T> IUIView.launchAndCollect(
  */
 fun <T> IUIView.launchWithLoadingAndCollect(
     requestBlock: suspend () -> BaseApiResponse<T>,
-    listenerBuilder: ResultBuilderApp<T>.() -> Unit,
+    listenerBuilder: ResultBuilder<T>.() -> Unit,
 ) {
     lifecycleScope.launch {
         launchFlow(requestBlock, { showLoading() }, { dismissLoading() }).collect { responce ->
-            val listener = ResultBuilderApp<T>().also(listenerBuilder)
+            val listener = ResultBuilder<T>().also(listenerBuilder)
             responce.parseData(listener)
         }
     }

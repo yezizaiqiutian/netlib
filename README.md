@@ -3,8 +3,47 @@
 [![](https://jitpack.io/v/yezizaiqiutian/netlib.svg)](https://jitpack.io/#yezizaiqiutian/netlib)
 
 > 极其简单的网络框架,封装简单,调用简单,有一定的可扩展性
+> rxjava方式采用灵活的回调使用方式
+> 协程方式使用最新的写成调用方式(推荐)
+
+
 
 ### 使用方式
+
+#### retrofit+flow+coroutines(推荐)
+
+引用
+```
+    implementation 'com.github.yezizaiqiutian:netlib:0.0.03'
+
+```
+
+使用方法
+```
+    launchWithLoadingAndCollect({
+            BaseRepository().executeHttp {
+                RetrofitClient.service.login("FastJetpack", "FastJetpack")
+            }
+        }) {
+            onSuccess = {
+                Log.d("ggggg", "请求成功")
+            }
+            onDataEmpty = {
+                Log.d("ggggg", "数据为空")
+            }
+            onComplete = {
+                Log.d("ggggg", "完成")
+            }
+            onFailed = { errorCode, errorMsg ->
+                Log.d("ggggg", "请求失败,服务器返回错误")
+            }
+            onError = { e ->
+                Log.d("ggggg", "请求失败,出现异常")
+            }
+        }
+```
+
+#### retrofit+rxjava
 
 引用
 ```

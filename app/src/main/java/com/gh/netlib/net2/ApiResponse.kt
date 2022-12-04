@@ -2,7 +2,7 @@ package com.gh.netlib.net2
 
 import com.gh.net_lib.BaseApiResponse
 
-data class ApiResponseApp<T>(
+data class ApiResponse<T>(
     val data: T? = null,
     val errorCode: Int? = null,
     val errorMsg: String? = null,

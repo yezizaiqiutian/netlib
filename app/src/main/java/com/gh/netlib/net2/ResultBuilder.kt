@@ -9,7 +9,7 @@ import com.gh.net_lib.BaseResultBuilder
  * @from:
  */
 
-class ResultBuilderApp<T> : BaseResultBuilder<T>() {
+class ResultBuilder<T> : BaseResultBuilder<T>() {
 
     //成功
     override var onSuccess: (data: T?) -> Unit = {}

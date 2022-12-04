@@ -9,7 +9,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("user/login")
-    suspend fun login(@Field("username") userName: String, @Field("password") passWord: String): ApiResponseApp<User?>
+    suspend fun login(@Field("username") userName: String, @Field("password") passWord: String): ApiResponse<User?>
 
     companion object {
         const val BASE_URL = "https://wanandroid.com/"
