@@ -10,7 +10,7 @@ package com.gh.net_lib
 fun <T> BaseApiResponse<T>.parseData(listener: BaseResultBuilder<T>) {
     when (this) {
         is ApiSuccessResponse -> listener.onSuccess(this.net_data)
-        is ApiEmptyResponse -> listener.onDataEmpty
+        is ApiEmptyResponse -> listener.onDataEmpty()
         is ApiFailedResponse -> listener.onFailed(this.net_code, this.net_msg)
         is ApiErrorResponse -> listener.onError(this.throwable)
     }
