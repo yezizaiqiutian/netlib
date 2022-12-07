@@ -38,8 +38,8 @@ ext.kotlin_version = "1.4.21"
 dependencies {
 
 
-    implementation 'com.github.yezizaiqiutian:netlib:0.0.01'
-
+//    implementation 'com.github.yezizaiqiutian:netlib:0.0.01'
+    api project(':net_lib_ktx_coroutines')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'

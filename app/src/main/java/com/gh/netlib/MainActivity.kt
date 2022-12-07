@@ -7,9 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gh.net_lib.BaseRepository
-import com.gh.netlib.net2.IUIView
-import com.gh.netlib.net2.RetrofitClient
-import com.gh.netlib.net2.launchWithLoadingAndCollect
+import com.gh.netlib.net2.*
 
 class MainActivity : AppCompatActivity(), IUIView {
 
@@ -48,19 +46,9 @@ class MainActivity : AppCompatActivity(), IUIView {
                 tv_text.text = it.toString()
                 Log.d("ggggg", "请求成功")
             }
-            onDataEmpty = {
-                Log.d("ggggg", "数据为空")
-            }
-            onComplete = {
-                Log.d("ggggg", "完成")
-            }
-            onFailed = { errorCode, errorMsg ->
+            onErrorAll = { errorCode, errorMsg ->
                 tv_text.text = "errorCode: $errorCode   errorMsg: $errorMsg"
                 Log.d("ggggg", "请求失败,服务器返回错误")
-            }
-            onError = { e ->
-                tv_text.text = e.toString()
-                Log.d("ggggg", "请求失败,出现异常")
             }
         }
     }

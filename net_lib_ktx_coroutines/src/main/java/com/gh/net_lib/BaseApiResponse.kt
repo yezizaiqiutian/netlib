@@ -23,12 +23,14 @@ open class BaseApiResponse<T>(
 
 }
 
-data class ApiSuccessResponse<T>(override var net_data: T?) :
-    BaseApiResponse<T>(net_data = net_data)
-
-class ApiEmptyResponse<T> : BaseApiResponse<T>()
+data class ApiSuccessResponse<T>(var response: BaseApiResponse<T>?) :
+    BaseApiResponse<T>(
+        net_data = response?.net_data,
+        net_code = response?.net_code,
+        net_msg = response?.net_msg,
+    )
 
 data class ApiFailedResponse<T>(override var net_code: Int?, override var net_msg: String?) :
     BaseApiResponse<T>(net_code = net_code, net_msg = net_msg)
 
-data class ApiErrorResponse<T>(val throwable: Throwable) : BaseApiResponse<T>(net_error = throwable)
+data class ApiErrorResponse<T>(val throwable: Throwable?) : BaseApiResponse<T>(net_error = throwable)

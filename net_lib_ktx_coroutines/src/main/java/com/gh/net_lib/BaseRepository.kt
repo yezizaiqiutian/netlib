@@ -17,7 +17,7 @@ open class BaseRepository {
         }.onFailure { e ->
             return handleHttpError(e)
         }
-        return ApiEmptyResponse()
+        return BaseApiResponse()
     }
 
     /**
@@ -36,19 +36,14 @@ open class BaseRepository {
      * 成功和数据为空的处理
      */
     private fun <T> getHttpSuccessResponse(response: BaseApiResponse<T>): BaseApiResponse<T> {
-        val data = response.net_data
-        return if (data == null || data is List<*> && (data as List<*>).isEmpty()) {
-            ApiEmptyResponse()
-        } else {
-            ApiSuccessResponse(data)
-        }
+        return ApiSuccessResponse(response)
     }
 
     /**
      * 非后台返回错误,捕获到的异常
      */
-    private fun <T> handleHttpError(e: Throwable): BaseApiResponse<T> {
-        if (BuildConfig.DEBUG) e.printStackTrace()
+    private fun <T> handleHttpError(e: Throwable?): BaseApiResponse<T> {
+        if (BuildConfig.DEBUG) e?.printStackTrace()
         return ApiErrorResponse(e)
     }
 
